@@ -1,0 +1,7 @@
+*pyc
+*.log
+.DS_Store
+settings.py
+/local
+/.idea
+*/__pycache__
