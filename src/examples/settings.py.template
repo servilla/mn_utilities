@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+""":Mod: settings.py
+
+:Synopsis:
+
+:Author:
+    servilla
+  
+:Created:
+    2/8/15
+"""
+
+__author__ = "servilla"
+
+MN_ID = "member node identifier"
+MN_BASE_URL = "member node  base URL"
+MN_CERT_PATH = "path to member node certificate combination (cert + key)"
+
+CN_BASE_URL = "coordinating node base URL"
+
+def main():
+    return 0
+
+
+if __name__ == "__main__":
+    main()
