@@ -24,12 +24,12 @@ def main():
     logging.basicConfig()
     logging.getLogger('').setLevel(logging.INFO)
 
-    mn_profile = mn_utilities.node_profile.Node_Profile()
+    mn_profile = mn_utilities.node_profile.NodeProfile()
     mn_profile.set_id(settings.MN_ID)
     mn_profile.set_base_url(settings.MN_BASE_URL)
     mn_profile.set_cert_path(settings.MN_CERT_PATH)
 
-    cn_profile = mn_utilities.node_profile.Node_Profile()
+    cn_profile = mn_utilities.node_profile.NodeProfile()
     cn_profile.set_base_url(settings.CN_BASE_URL)
 
     pid_tools = mn_utilities.pid_tools.Pid_Tools(mn_profile, cn_profile)
