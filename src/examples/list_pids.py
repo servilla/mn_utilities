@@ -4,6 +4,8 @@
 """:Mod: list_pids
 
 :Synopsis:
+    Example driver to generate a list of "persistent identifiers" (pids) on a
+    DataONE Coordinating Node using various methods.
 
 :Author:
     servilla
@@ -33,7 +35,8 @@ def main():
     cn_profile.set_base_url(settings.CN_BASE_URL)
 
     pid_tools = mn_utilities.pid_tools.Pid_Tools(mn_profile, cn_profile)
-    cn_pids = pid_tools.get_mn_pids_from_cn(source="comparator", max_records=999999)
+    cn_pids = pid_tools.get_mn_pids_from_cn(source="comparator",
+                                            max_records=999999)
 
     for pid in cn_pids:
         print(pid)
