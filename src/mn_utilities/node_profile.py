@@ -43,6 +43,7 @@ class NodeProfile(object):
         path_parts = base_url.split('/')
         self._domain_name = path_parts[2]
 
+
     def get_base_url(self):
         """Gets the node base URL.
 
@@ -50,6 +51,7 @@ class NodeProfile(object):
         :rtype: str
         """
         return self._base_url
+
 
     def set_cert_path(self,cert_path):
         """Sets the node x509 certificate path.
@@ -60,6 +62,7 @@ class NodeProfile(object):
         """
         self._cert_path = cert_path
 
+
     def get_cert_path(self):
         """Gets the node x509 certificate path.
 
@@ -67,6 +70,7 @@ class NodeProfile(object):
         :rtype: str
         """
         return self._cert_path
+
 
     def set_id(self, id):
         """Sets the canonical node identifier.
@@ -76,6 +80,7 @@ class NodeProfile(object):
         :return: None
         """
         self._id = id
+
 
     def get_id(self, esc=False):
         """Gets the canonical node identifier.
@@ -90,6 +95,7 @@ class NodeProfile(object):
             id = id.replace(":", "\:")
         return id
 
+
     def get_domain_name(self):
         """Gets the node's Internet domain name.
 
@@ -100,6 +106,7 @@ class NodeProfile(object):
         """
         return self._domain_name
 
+
     def set_api_version(self, api_version):
         """Sets the node's DataONE API version.
 
@@ -108,6 +115,7 @@ class NodeProfile(object):
         :return: None
         """
         self._api_version = api_version
+
 
     def get_api_version(self):
         """Gets the node's DataONE API version.
