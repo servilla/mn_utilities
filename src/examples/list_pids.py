@@ -16,13 +16,26 @@
 
 __author__ = "servilla"
 
+# System
 import logging
+import argparse
 
 import mn_utilities.pid_tools
 import mn_utilities.node_profile
 import settings
 
 def main():
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-f", "--filename", help="List output file name", default=None)
+    parser.add_argument("-a", "--algorithm", help="List source algorithm type", default=None)
+    parser.add_argument("-r", "--records", help="Maximum number of records to return", default=999999)
+    args = parser.parse_args()
+
+    filename = args.filename
+    algorithm = args.algorithm
+    records = args.records
+
     logging.basicConfig()
     logging.getLogger('').setLevel(logging.INFO)
 
@@ -35,11 +48,19 @@ def main():
     cn_profile.set_base_url(settings.CN_BASE_URL)
 
     pid_tools = mn_utilities.pid_tools.Pid_Tools(mn_profile, cn_profile)
-    cn_pids = pid_tools.get_mn_pids_from_cn(source="comparator",
-                                            max_records=999999)
 
-    for pid in cn_pids:
-        print(pid)
+    if algorithm:
+        cn_pids = pid_tools.get_mn_pids_from_cn(source=algorithm,
+                                                max_records=records)
+    else:
+        cn_pids = pid_tools.get_mn_pids_from_cn(max_records=records)
+
+    if filename:
+        for pid in cn_pids:
+            open(filename, mode="a").write("%s\n" % pid)
+    else:
+        for pid in cn_pids:
+            print(pid)
 
     return 0
 
